@@ -1,0 +1,10 @@
+.cor{
+    background-image: linear-gradient(to right, rgba(230, 25, 110, 0.678) , rgb(63, 4, 110)) !important;
+}
+.cursor{
+    cursor: pointer;
+    color: aliceblue;
+}
+.text-decorator-none{
+    text-decoration: none;
+}
