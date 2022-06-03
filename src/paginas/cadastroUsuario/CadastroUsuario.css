@@ -1,7 +1,4 @@
-.texto{
-    font-weight:bold !important;
-}
-.imagem{
+.imagem2{
     
     background-image: url(https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05);
     background-repeat: no-repeat;
@@ -10,6 +7,9 @@
     background-size: cover;
     background-position: center;
 }
-.text-decorator-none{
-    text-decoration: none;
+.texto1{
+    font-weight:bold !important;
+}
+.btnCancelar{
+    margin-right: 20px !important;
 }
