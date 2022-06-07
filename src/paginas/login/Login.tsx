@@ -1,13 +1,13 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import {Grid, Box, Typography, TextField, Button} from '@material-ui/core';
 import {Link, useNavigate} from 'react-router-dom'
 import useLocalStorage from 'react-use-localstorage';
-import { api } from '../../sevices/Services';
+import { login } from '../../sevices/Services';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 
 function Login(){
-    let history = useNavigate();
+    let navigate = useNavigate();
     const [token, setToken] = useLocalStorage('token')
     const[userLogin, setUserLogin] = useState<UserLogin>(
         {
@@ -27,11 +27,16 @@ function Login(){
             })
         }
 
+        useEffect(() => {
+            if (token != '') {
+                navigate('/home')
+            }
+        }, [token])
+
         async function onSubmit(e: ChangeEvent<HTMLFormElement>){
             e.preventDefault();
             try{
-                const resposta = await api.post(`/usuarios/logar`, userLogin)
-                setToken(resposta.data.token)
+                await login(`/usuarios/logar`, userLogin, setToken)
 
                 alert('Usuário logado com sucesso!')
             }catch(error){
