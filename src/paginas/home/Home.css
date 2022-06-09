@@ -1,5 +1,5 @@
 .caixa{
-    background-color: rgb(29, 7, 32);
+    background-color: rgb(29, 7, 32) !important;
 }
 .titulo{
     color: rgb(56, 142, 255) !important;

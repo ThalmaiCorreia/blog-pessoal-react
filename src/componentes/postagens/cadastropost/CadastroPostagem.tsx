@@ -1,13 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Button, Container, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from '@material-ui/core'
 import { useNavigate, useParams } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
-
 import { busca, buscaId, post, put } from '../../../sevices/Services';
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
-
 import './CadastroPostagem.css';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function CadastroPostagem() {
 
@@ -17,8 +17,9 @@ function CadastroPostagem() {
 
     const [temas, setTemas] = useState<Tema[]>([])
 
-    const [token, setToken] = useLocalStorage('token')
-
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
@@ -33,7 +34,16 @@ function CadastroPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            // toast.error("Você precisa estar logado",{
+            //     position: "top-right",
+            //     autoClose: 2000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: false,
+            //     draggable: false,
+            //     theme: "colored",
+            //     progress: undefined,
+            // })
             navigate("/login")
         }
     }, [token])
@@ -53,7 +63,7 @@ function CadastroPostagem() {
     }, [id])
 
     async function getTemas() {
-        await busca("/temas", setTemas, {
+        await busca("/tema", setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -86,8 +96,16 @@ function CadastroPostagem() {
                     'Authorization': token
                 }
             })
-            alert('Postagem atualizada com sucesso');
-
+            // toast.success("Postagem atualizada com sucesso",{
+            //     position: "top-right",
+            //     autoClose: 2000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: false,
+            //     draggable: false,
+            //     theme: "colored",
+            //     progress: undefined,
+            // })
 
         } else {
 
@@ -96,7 +114,16 @@ function CadastroPostagem() {
                     'Authorization': token
                 }
             })
-            alert('Postagem cadastrada com sucesso');
+            // toast.success("Postagem cadastrada com sucesso",{
+            //     position: "top-right",
+            //     autoClose: 2000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: false,
+            //     draggable: false,
+            //     theme: "colored",
+            //     progress: undefined,
+            // })
 
         }
         back()
@@ -132,7 +159,7 @@ function CadastroPostagem() {
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
 
-                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
@@ -141,7 +168,7 @@ function CadastroPostagem() {
 
                         {
                             temas.map(item => (
-                                <MenuItem value={item.id}>{tema.descricao}</MenuItem>
+                                <MenuItem value={item.id}>{item.descricao}</MenuItem>
                             ))
                         }
 
