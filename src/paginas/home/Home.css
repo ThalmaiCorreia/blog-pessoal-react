@@ -14,3 +14,6 @@
     /* background-color: rgb(29, 7, 32) !important; */
     background-color: white;
 }
+.imag{
+    background-size: cover !important;
+}

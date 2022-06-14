@@ -47,7 +47,7 @@ function Home() {
                         </Link>
                     </Box>
                 </Grid>
-                <Grid item xs={6} >
+                <Grid item xs={6} className='imag' >
                     <img src="https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05" alt="Imagem Tela Inicial" width="750px" height="450px" />
                 </Grid>
                 <Grid xs={12} className='postagens'>
