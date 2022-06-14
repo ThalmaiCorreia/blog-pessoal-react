@@ -21,7 +21,7 @@ import store from './store/store';
 function App() {
   return (
     <Provider store={store}>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <Router>
         <Navbar />
         <div style={{ minHeight: '100vh' }}>

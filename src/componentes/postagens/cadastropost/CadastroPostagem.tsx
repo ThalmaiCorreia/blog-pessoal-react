@@ -34,16 +34,16 @@ function CadastroPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            // toast.error("Você precisa estar logado",{
-            //     position: "top-right",
-            //     autoClose: 2000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: false,
-            //     theme: "colored",
-            //     progress: undefined,
-            // })
+            toast.error("Você precisa estar logado",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
             navigate("/login")
         }
     }, [token])
@@ -96,16 +96,16 @@ function CadastroPostagem() {
                     'Authorization': token
                 }
             })
-            // toast.success("Postagem atualizada com sucesso",{
-            //     position: "top-right",
-            //     autoClose: 2000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: false,
-            //     theme: "colored",
-            //     progress: undefined,
-            // })
+            toast.success("Postagem atualizada com sucesso",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
 
         } else {
 
@@ -114,16 +114,16 @@ function CadastroPostagem() {
                     'Authorization': token
                 }
             })
-            // toast.success("Postagem cadastrada com sucesso",{
-            //     position: "top-right",
-            //     autoClose: 2000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: false,
-            //     theme: "colored",
-            //     progress: undefined,
-            // })
+            toast.success("Postagem cadastrada com sucesso",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
 
         }
         back()

@@ -44,7 +44,20 @@ function ListaPostagem() {
         }, [posts.length])
 
   return (
-    <>
+    <Box m={12}>
+
+      <Link to={`/formularioPostagem`} className="text-decorator-none" >
+                <Box mx={1} className="center">
+                  <Button variant="contained"  size='small' color="primary" >
+                    Cadastrar Nova Postagem
+                  </Button>
+                </Box>
+              </Link>
+
+
+      
+    <Box display='flex' >
+      
     {
         posts.map(post =>(
       <Box m={2} >
@@ -93,9 +106,11 @@ function ListaPostagem() {
 
         </Card>
       </Box>
+      
       ))
 }
-    </>
+    </Box>
+    </Box>
   )
 }
 

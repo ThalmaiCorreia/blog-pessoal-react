@@ -52,44 +52,44 @@ async function cadastrar(e: ChangeEvent<HTMLFormElement>) {
             //Tenta executar o cadastro
             try {
                 await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-                // toast.success("Usuário cadastrado com sucesso.",{
-                //     position: "top-right",
-                //     autoClose: 2000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: false,
-                //     draggable: false,
-                //     theme: "colored",
-                //     progress: undefined,
-                // })
+                toast.success("Usuário cadastrado com sucesso.",{
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                })
             //Se houver erro, pegue o Erro e retorna uma msg
             } catch (error) {
                 console.log(`Error: ${error}`)
                 
                 //Pode modificar a msg de acordo com o erro 
-                // toast.error("Usuário já existente",{
-                //     position: "top-right",
-                //     autoClose: 2000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: false,
-                //     draggable: false,
-                //     theme: "colored",
-                //     progress: undefined,
-                // })            
+                toast.error("Usuário já existente",{
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                })            
             }
 
         } else {
-            // toast.error("Insira no miníno 8 caracteres na senha.",{
-            //     position: "top-right",
-            //     autoClose: 2000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: false,
-            //     theme: "colored",
-            //     progress: undefined,
-            // })
+            toast.error("Insira no miníno 8 caracteres na senha.",{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
 
             setUser({ ...user, senha: "" }) // Reinicia o campo de Senha
             setConfirmarSenha("")           // Reinicia o campo de Confirmar Senha

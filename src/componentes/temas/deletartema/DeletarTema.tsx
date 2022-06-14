@@ -45,7 +45,7 @@ function DeletarTema() {
     }, [id])
 
     async function findById(id: string) {
-        await buscaId(`/temas/${id}`, setTema, {
+        await buscaId(`/tema/${id}`, setTema, {
             headers: {
                 'Authorization': token
             }
@@ -56,7 +56,7 @@ function DeletarTema() {
         navigate('/temas')
 
         try {
-            await deleteId(`/temas/${id}`, {
+            await deleteId(`/tema/${id}`, {
                 headers: {
                     'Authorization': token
                 }
@@ -79,7 +79,7 @@ function DeletarTema() {
     }
 
     function nao() {
-        navigate('/temas')
+        navigate('/tema')
     }
 
     return (
